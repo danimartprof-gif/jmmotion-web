@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JM-MOTION — Fisioterapia & Readaptación en El Campello</title>
+<meta name="description" content="Fisioterapia individualizada, readaptación deportiva, podología, ecografía y nutrición en El Campello. Sesiones 100% personalizadas, sin tratamientos genéricos.">
+<meta name="theme-color" content="#0e3a4a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            50:  '#e8f5f7',
+            100: '#c8e7ec',
+            200: '#94d0d9',
+            300: '#5fb6c4',
+            400: '#3a9bac',
+            500: '#1c8294',  /* turquesa logo */
+            600: '#127080',
+            700: '#0e5868',
+            800: '#0e3a4a',  /* navy oscuro */
+            900: '#082633',
+          },
+          ink:  '#0b1820',
+          mute: '#56697a',
+          line: '#e6ecef',
+          paper:'#f7f9fa',
+        },
+        fontFamily: {
+          sans: ['Inter','system-ui','sans-serif'],
+          display: ['Manrope','Inter','system-ui','sans-serif'],
+        },
+        boxShadow: {
+          'soft':  '0 6px 24px -8px rgba(14,58,74,.18)',
+          'card':  '0 12px 40px -16px rgba(14,58,74,.22)',
+          'big':   '0 30px 80px -30px rgba(14,58,74,.45)',
+        },
+        animation: {
+          'fade-up': 'fadeUp .9s ease-out both',
+          'fade-in': 'fadeIn 1.2s ease-out both',
+        },
+        keyframes: {
+          fadeUp: { '0%': { opacity: 0, transform: 'translateY(18px)' }, '100%': { opacity:1, transform:'translateY(0)' } },
+          fadeIn: { '0%': { opacity: 0 }, '100%': { opacity:1 } },
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; color:#0b1820; -webkit-font-smoothing:antialiased; }
+  .font-display { font-family: 'Manrope', 'Inter', sans-serif; letter-spacing: -0.02em; }
+  .hero-grad {
+    background:
+      linear-gradient(180deg, rgba(8,38,51,.55) 0%, rgba(8,38,51,.35) 35%, rgba(8,38,51,.85) 100%),
+      url('assets/img/img-3749.webp') center 30% / cover no-repeat;
+  }
+  .section-grad-light {
+    background: radial-gradient(1200px 600px at 80% -200px, #e8f5f7 0%, transparent 60%),
+                radial-gradient(800px 400px at -100px 100%, #f1f7f8 0%, transparent 60%);
+  }
+  .chip {
+    display:inline-flex; align-items:center; gap:.45rem;
+    padding:.4rem .8rem; border-radius:999px;
+    background:rgba(255,255,255,.12); color:#fff;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border:1px solid rgba(255,255,255,.18);
+    font-size:.78rem; font-weight:500; letter-spacing:.02em;
+  }
+  .check { color: #1c8294; flex:0 0 auto; }
+  .underline-brand { background-image: linear-gradient(transparent 62%, rgba(28,130,148,.28) 62%); }
+  .card { background:#fff; border:1px solid #eef2f4; border-radius:1.25rem; transition:transform .35s ease, box-shadow .35s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -22px rgba(14,58,74,.25); }
+  details > summary { list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker { display:none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  .faq-icon { transition: transform .25s ease; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+  /* WhatsApp pulse */
+  @keyframes pulseRing {
+    0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.55); }
+    70%  { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+  }
+  .wa-pulse { animation: pulseRing 2.2s infinite; }
+  /* Mobile menu transitions */
+  #mobileMenu { transition: transform .35s ease, opacity .35s ease; }
+  #mobileMenu.hidden-init { transform: translateY(-12px); opacity:0; pointer-events:none; }
+</style>
+</head>
+<body class="bg-white">
+
+<!-- ============ TOP BAR ============ -->
+<header class="fixed inset-x-0 top-0 z-40 backdrop-blur-md bg-white/85 border-b border-line">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2 group">
+      <span class="w-9 h-9 rounded-xl bg-brand-800 text-white grid place-items-center font-display font-bold">JM</span>
+      <span class="font-display font-bold text-ink tracking-tight">JM-MOTION</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-mute">
+      <a href="#servicios" class="hover:text-ink">Servicios</a>
+      <a href="#diferencia" class="hover:text-ink">Por qué nosotros</a>
+      <a href="#instalaciones" class="hover:text-ink">Instalaciones</a>
+      <a href="#testimonios" class="hover:text-ink">Testimonios</a>
+      <a href="#faq" class="hover:text-ink">FAQ</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="tel:+34644360781" class="hidden sm:inline-flex text-sm font-semibold text-brand-800 hover:text-brand-600">
+        644 36 07 81
+      </a>
+      <a href="#reservar" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-800 hover:bg-brand-700 text-white text-sm font-semibold shadow-soft transition">
+        Reservar
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-ink hover:bg-paper" aria-label="Abrir menú">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden-init md:hidden border-t border-line bg-white">
+    <nav class="px-6 py-4 flex flex-col gap-3 text-sm font-medium text-ink">
+      <a href="#servicios">Servicios</a>
+      <a href="#diferencia">Por qué nosotros</a>
+      <a href="#instalaciones">Instalaciones</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#faq">FAQ</a>
+      <a href="tel:+34644360781" class="text-brand-700 font-semibold">644 36 07 81</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="pt-16">
+
+<!-- ============ HERO ============ -->
+<section class="relative hero-grad text-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 lg:pt-32 lg:pb-44">
+    <div class="max-w-3xl animate-fade-up">
+      <span class="chip">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        El Campello · L-V 08:00–21:00 · S 09:00–14:00
+      </span>
+      <h1 class="font-display mt-6 text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-[1.05]">
+        Vuelve a moverte
+        <span class="block text-brand-200">sin dolor.</span>
+      </h1>
+      <p class="mt-6 text-lg lg:text-xl text-white/85 max-w-2xl leading-relaxed">
+        Recupera la tranquilidad de entrenar, trabajar o vivir tu día sin miedo a lesionarte otra vez.
+        En <strong class="text-white">JM-MOTION</strong> trabajamos con una fisioterapia totalmente individualizada,
+        acompañándote durante todo el proceso para que vuelvas a moverte con seguridad y confianza.
+      </p>
+
+      <ul class="mt-8 grid grid-cols-2 sm:flex sm:flex-wrap gap-x-6 gap-y-3 text-sm sm:text-base font-medium">
+        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-300 rounded-full"></span> Fisioterapia</li>
+        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-300 rounded-full"></span> Readaptación deportiva</li>
+        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-300 rounded-full"></span> Ecografía</li>
+        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-300 rounded-full"></span> Podología</li>
+        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-300 rounded-full"></span> Nutrición</li>
+      </ul>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-3">
+        <a href="#reservar" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white text-brand-800 font-semibold hover:bg-brand-50 transition shadow-big">
+          Reserva tu valoración
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://wa.me/34644360781?text=Hola%20JM-MOTION%2C%20me%20gustar%C3%ADa%20pedir%20cita" target="_blank" rel="noopener"
+           class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-white/35 text-white font-semibold hover:bg-white/10 transition">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.554-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.595 5.392l-.999 3.648 3.893-1.039z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- decorative bottom wave -->
+  <svg class="absolute -bottom-px left-0 right-0 w-full text-white" viewBox="0 0 1440 80" fill="currentColor" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 80V40c180 30 360 30 540 5s360-75 540-65 240 60 360 65v35H0z"/>
+  </svg>
+</section>
+
+<!-- ============ TRUST BAR ============ -->
+<section class="bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 lg:-mt-14 relative z-10">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-line rounded-3xl overflow-hidden shadow-card border border-line">
+      <div class="bg-white p-6 lg:p-8">
+        <div class="font-display text-3xl lg:text-4xl font-extrabold text-brand-800">50–60′</div>
+        <div class="mt-1 text-sm text-mute">Sesiones individuales</div>
+      </div>
+      <div class="bg-white p-6 lg:p-8">
+        <div class="font-display text-3xl lg:text-4xl font-extrabold text-brand-800">1 a 1</div>
+        <div class="mt-1 text-sm text-mute">Profesional a tu disposición</div>
+      </div>
+      <div class="bg-white p-6 lg:p-8">
+        <div class="font-display text-3xl lg:text-4xl font-extrabold text-brand-800">100%</div>
+        <div class="mt-1 text-sm text-mute">Tratamiento personalizado</div>
+      </div>
+      <div class="bg-white p-6 lg:p-8">
+        <div class="font-display text-3xl lg:text-4xl font-extrabold text-brand-800">El Campello</div>
+        <div class="mt-1 text-sm text-mute">Calle Port D'lbaida 7</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOLOR / IDENTIFICACIÓN ============ -->
+<section class="py-24 lg:py-32 section-grad-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <div class="lg:col-span-6 order-2 lg:order-1">
+      <div class="relative">
+        <img src="assets/img/img-1936.webp"
+             srcset="assets/img/img-1936-sm.webp 640w, assets/img/img-1936.webp 1600w"
+             sizes="(max-width: 768px) 100vw, 600px"
+             alt="Sesión de recuperación con presoterapia REBOOTS en JM-MOTION" loading="lazy"
+             class="rounded-3xl shadow-card w-full h-[520px] object-cover">
+        <div class="absolute -bottom-6 -left-6 hidden md:block">
+          <div class="bg-white rounded-2xl shadow-big p-5 max-w-xs border border-line">
+            <p class="text-sm text-mute leading-relaxed">
+              "Por primera vez sentí que realmente entendían lo que me pasaba."
+            </p>
+            <div class="mt-3 flex items-center gap-1 text-amber-400 text-sm">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-6 order-1 lg:order-2">
+      <span class="text-sm font-semibold text-brand-700 uppercase tracking-widest">El problema</span>
+      <h2 class="font-display mt-3 text-3xl lg:text-5xl font-bold leading-tight">
+        Seguramente ya has probado <span class="underline-brand">de todo…</span><br>
+        <span class="text-mute">…y sigues igual.</span>
+      </h2>
+      <p class="mt-6 text-lg text-mute leading-relaxed">
+        Sesiones rápidas. Tratamientos genéricos. Máquinas sin explicación. Ejercicios que acabas dejando porque
+        nadie hace seguimiento. Y mientras tanto, el dolor vuelve una y otra vez.
+      </p>
+      <p class="mt-4 text-lg text-mute leading-relaxed">
+        El problema no es solo el dolor. Es la frustración de sentir que no avanzas, de tener que dejar de entrenar,
+        de no poder trabajar cómodo o de vivir limitado por molestias constantes.
+      </p>
+      <p class="mt-6 text-xl font-semibold text-ink">
+        En JM-MOTION buscamos entender qué te está pasando realmente para ayudarte a recuperar
+        <span class="text-brand-700">movimiento, confianza y calidad de vida.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIA ============ -->
+<section id="diferencia" class="py-24 lg:py-32 bg-brand-800 text-white relative overflow-hidden">
+  <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-brand-700/40 blur-3xl"></div>
+  <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-brand-500/20 blur-3xl"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <span class="text-sm font-semibold text-brand-300 uppercase tracking-widest">Cómo trabajamos</span>
+      <h2 class="font-display mt-3 text-3xl lg:text-5xl font-bold leading-tight">
+        Aquí no vienes a una sesión genérica.<br>
+        <span class="text-brand-200">Vienes a un tratamiento pensado para ti.</span>
+      </h2>
+      <p class="mt-6 text-lg text-white/80 leading-relaxed max-w-2xl">
+        Cada persona tiene un cuerpo, un ritmo y una lesión diferente. Por eso trabajamos de forma totalmente
+        individualizada desde el primer día.
+      </p>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition">
+        <div class="w-11 h-11 rounded-xl bg-brand-300/20 grid place-items-center text-brand-200 font-display font-bold">01</div>
+        <h3 class="mt-5 font-display text-xl font-bold">Valoración profunda</h3>
+        <p class="mt-2 text-white/75 text-sm leading-relaxed">Estudiamos tu caso para entender el origen del problema, no solo el síntoma.</p>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition">
+        <div class="w-11 h-11 rounded-xl bg-brand-300/20 grid place-items-center text-brand-200 font-display font-bold">02</div>
+        <h3 class="mt-5 font-display text-xl font-bold">Plan adaptado</h3>
+        <p class="mt-2 text-white/75 text-sm leading-relaxed">Diseñamos un tratamiento a tu medida, tu ritmo y tus objetivos reales.</p>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition">
+        <div class="w-11 h-11 rounded-xl bg-brand-300/20 grid place-items-center text-brand-200 font-display font-bold">03</div>
+        <h3 class="mt-5 font-display text-xl font-bold">Acompañamiento real</h3>
+        <p class="mt-2 text-white/75 text-sm leading-relaxed">Estamos contigo durante todo el proceso. Sin máquinas sin explicación.</p>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/10 transition">
+        <div class="w-11 h-11 rounded-xl bg-brand-300/20 grid place-items-center text-brand-200 font-display font-bold">04</div>
+        <h3 class="mt-5 font-display text-xl font-bold">Seguimiento entre sesiones</h3>
+        <p class="mt-2 text-white/75 text-sm leading-relaxed">Resolvemos dudas y ajustamos el plan para que avances de verdad.</p>
+      </div>
+    </div>
+
+    <div class="mt-14 max-w-3xl">
+      <p class="text-xl lg:text-2xl font-display font-semibold text-white">
+        Porque recuperarte no es solo quitar dolor.
+        <span class="text-brand-200">Es volver a sentir seguridad en tu cuerpo.</span>
+      </p>
+      <a href="#reservar" class="mt-8 inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white text-brand-800 font-semibold hover:bg-brand-50 transition">
+        Quiero empezar mi recuperación
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section id="servicios" class="py-24 lg:py-32 bg-paper">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <span class="text-sm font-semibold text-brand-700 uppercase tracking-widest">Servicios</span>
+      <h2 class="font-display mt-3 text-3xl lg:text-5xl font-bold leading-tight">
+        Tratamos el problema. <span class="text-brand-700">No solo el síntoma.</span>
+      </h2>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-2 gap-6">
+
+      <!-- FISIOTERAPIA -->
+      <article class="card overflow-hidden flex flex-col">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="assets/img/img-1946.webp"
+               srcset="assets/img/img-1946-sm.webp 640w, assets/img/img-1946.webp 1600w"
+               sizes="(max-width: 768px) 100vw, 600px"
+               loading="lazy"
+               alt="Sesión de fisioterapia personalizada con percutor en JM-MOTION"
+               class="w-full h-full object-cover hover:scale-105 transition duration-700">
+        </div>
+        <div class="p-7 lg:p-9 flex-1 flex flex-col">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 grid place-items-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6m8-9v13m-4-4l4 4 4-4"/></svg>
+            </span>
+            <h3 class="font-display text-2xl font-bold">Fisioterapia</h3>
+          </div>
+          <p class="mt-4 text-mute leading-relaxed">
+            Dolor lumbar, cervicales, lesiones musculares, sobrecargas, molestias que vuelven una y otra vez.
+            Nuestro objetivo no es que dependas constantemente de tratamientos pasivos, sino ayudarte a
+            recuperarte de forma eficiente.
+          </p>
+          <ul class="mt-5 space-y-2.5 text-sm text-ink">
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sesiones de 50–60 minutos individuales</li>
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reevaluación y seguimiento entre visitas</li>
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pautas de ejercicios y estiramientos para casa</li>
+          </ul>
+          <a href="#reservar" class="mt-7 inline-flex items-center gap-2 text-brand-700 hover:text-brand-800 font-semibold text-sm">
+            Reservar sesión de fisioterapia
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ECOGRAFÍA -->
+      <article class="card overflow-hidden flex flex-col">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="assets/img/img-1951.webp"
+               srcset="assets/img/img-1951-sm.webp 640w, assets/img/img-1951.webp 1600w"
+               sizes="(max-width: 768px) 100vw, 600px"
+               loading="lazy"
+               alt="Ecografía musculoesquelética para diagnóstico preciso en JM-MOTION"
+               class="w-full h-full object-cover hover:scale-105 transition duration-700">
+        </div>
+        <div class="p-7 lg:p-9 flex-1 flex flex-col">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 grid place-items-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </span>
+            <h3 class="font-display text-2xl font-bold">Ecografía musculoesquelética</h3>
+          </div>
+          <p class="mt-4 text-mute leading-relaxed">
+            Diagnóstico por imagen en consulta para localizar con precisión qué está pasando: roturas,
+            tendinopatías, sobrecargas. Combinamos la ecografía con tratamiento guiado para acelerar
+            la recuperación.
+          </p>
+          <ul class="mt-5 space-y-2.5 text-sm text-ink">
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Diagnóstico inmediato sin esperas</li>
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>EPTE® y técnicas eco-guiadas</li>
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Te explicamos lo que vemos en pantalla</li>
+          </ul>
+          <a href="#reservar" class="mt-7 inline-flex items-center gap-2 text-brand-700 hover:text-brand-800 font-semibold text-sm">
+            Reservar ecografía
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- READAPTACIÓN -->
+      <article class="card overflow-hidden flex flex-col">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="assets/img/img-1943.webp"
+               srcset="assets/img/img-1943-sm.webp 640w, assets/img/img-1943.webp 1600w"
+               sizes="(max-width: 768px) 100vw, 600px"
+               loading="lazy"
+               alt="Sesión de readaptación deportiva en sala de entrenamiento de JM-MOTION"
+               class="w-full h-full object-cover hover:scale-105 transition duration-700">
+        </div>
+        <div class="p-7 lg:p-9 flex-1 flex flex-col">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 grid place-items-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+            </span>
+            <h3 class="font-display text-2xl font-bold">Readaptación deportiva</h3>
+          </div>
+          <p class="mt-4 text-mute leading-relaxed">
+            Volver a entrenar con confianza también forma parte de la recuperación. Después de una lesión,
+            el cuerpo necesita recuperar fuerza, estabilidad y seguridad para volver a entrenar o competir
+            sin miedo a recaer.
+          </p>
+          <ul class="mt-5 space-y-2.5 text-sm text-ink">
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Vuelta progresiva a tu deporte</li>
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Trabajo de fuerza, control y estabilidad</li>
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Minimizar el riesgo de recaídas</li>
+          </ul>
+          <a href="#reservar" class="mt-7 inline-flex items-center gap-2 text-brand-700 hover:text-brand-800 font-semibold text-sm">
+            Quiero volver a entrenar bien
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- PODOLOGÍA -->
+      <article class="card overflow-hidden flex flex-col">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="assets/img/captura-20250718.webp"
+               srcset="assets/img/captura-20250718-sm.webp 640w, assets/img/captura-20250718.webp 1600w"
+               sizes="(max-width: 768px) 100vw, 600px"
+               loading="lazy"
+               alt="Estudio de pisada en plataforma de presión en JM-MOTION"
+               class="w-full h-full object-cover hover:scale-105 transition duration-700">
+        </div>
+        <div class="p-7 lg:p-9 flex-1 flex flex-col">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 grid place-items-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 14a2 2 0 002 2h6a2 2 0 002-2v-2H7v2zM7 9V7a2 2 0 012-2h6a2 2 0 012 2v2"/></svg>
+            </span>
+            <h3 class="font-display text-2xl font-bold">Podología</h3>
+          </div>
+          <p class="mt-4 text-mute leading-relaxed">
+            Tus pies son la base de todo lo demás. Muchas molestias en rodillas, caderas o espalda
+            empiezan mucho antes de donde aparece el dolor. Estudiamos la pisada y la biomecánica
+            para ayudarte a moverte mejor.
+          </p>
+          <ul class="mt-5 space-y-2.5 text-sm text-ink">
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Estudio biomecánico de la pisada</li>
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Plantillas personalizadas si las necesitas</li>
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Quiropodia y tratamiento de patologías</li>
+          </ul>
+          <a href="#reservar" class="mt-7 inline-flex items-center gap-2 text-brand-700 hover:text-brand-800 font-semibold text-sm">
+            Reservar valoración podológica
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- NUTRICIÓN (full width) -->
+      <article class="card overflow-hidden md:col-span-2 grid md:grid-cols-2 gap-0">
+        <div class="aspect-[4/3] md:aspect-auto overflow-hidden">
+          <img src="assets/img/img-1924.webp"
+               srcset="assets/img/img-1924-sm.webp 640w, assets/img/img-1924.webp 1600w"
+               sizes="(max-width: 768px) 100vw, 600px"
+               loading="lazy"
+               alt="Valoración corporal y composición en JM-MOTION"
+               class="w-full h-full object-cover hover:scale-105 transition duration-700">
+        </div>
+        <div class="p-7 lg:p-9 flex flex-col justify-center">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 grid place-items-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M5 9c0-3 3-5 7-5s7 2 7 5-3 5-7 5-7-2-7-5z"/></svg>
+            </span>
+            <h3 class="font-display text-2xl font-bold">Nutrición</h3>
+          </div>
+          <p class="mt-4 text-mute leading-relaxed">
+            Sentirte mejor también empieza por dentro. La alimentación influye directamente en tu energía,
+            recuperación, composición corporal y salud. Creamos hábitos sostenibles y una estrategia
+            adaptada a tu estilo de vida.
+          </p>
+          <ul class="mt-5 space-y-2.5 text-sm text-ink">
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sin dietas imposibles ni soluciones rápidas</li>
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Plan adaptado a tu rutina y objetivos</li>
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Seguimiento continuado</li>
+          </ul>
+          <a href="#reservar" class="mt-7 inline-flex items-center gap-2 text-brand-700 hover:text-brand-800 font-semibold text-sm self-start">
+            Quiero mejorar mi alimentación
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCIA / PROCESO ============ -->
+<section class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <div class="lg:col-span-5">
+      <span class="text-sm font-semibold text-brand-700 uppercase tracking-widest">Tu experiencia</span>
+      <h2 class="font-display mt-3 text-3xl lg:text-5xl font-bold leading-tight">
+        Queremos que <span class="underline-brand">entiendas</span> qué te pasa y cómo solucionarlo.
+      </h2>
+      <p class="mt-6 text-lg text-mute leading-relaxed">
+        Sabemos lo frustrante que es pasar por tratamientos donde apenas te explican nada.
+        Te explicamos qué está ocurriendo, por qué puede estar pasando y qué vamos a hacer para ayudarte.
+      </p>
+      <p class="mt-4 text-lg text-mute leading-relaxed">
+        Queremos que formes parte activa de tu recuperación y que no dependas constantemente de tratamientos pasivos.
+        Nuestro objetivo no es que vengas eternamente a consulta — es ayudarte a recuperarte de la forma más
+        eficiente posible.
+      </p>
+      <div class="mt-8 grid grid-cols-2 gap-3 max-w-md">
+        <div class="flex items-start gap-2"><span class="check mt-0.5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="text-sm font-medium">Te explicamos el proceso</span></div>
+        <div class="flex items-start gap-2"><span class="check mt-0.5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="text-sm font-medium">Resolvemos tus dudas</span></div>
+        <div class="flex items-start gap-2"><span class="check mt-0.5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="text-sm font-medium">Adaptamos a tu evolución</span></div>
+        <div class="flex items-start gap-2"><span class="check mt-0.5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="text-sm font-medium">Seguimos en contacto</span></div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7">
+      <div class="grid grid-cols-12 grid-rows-6 gap-3 h-[520px]">
+        <div class="col-span-7 row-span-4 rounded-2xl overflow-hidden shadow-soft">
+          <img src="assets/img/img-1967.webp" srcset="assets/img/img-1967-sm.webp 640w, assets/img/img-1967.webp 1600w" sizes="(max-width:768px) 100vw, 500px" loading="lazy" alt="Sesión cervical en JM-MOTION" class="w-full h-full object-cover">
+        </div>
+        <div class="col-span-5 row-span-3 rounded-2xl overflow-hidden shadow-soft">
+          <img src="assets/img/img-1958.webp" srcset="assets/img/img-1958-sm.webp 640w, assets/img/img-1958.webp 1600w" sizes="(max-width:768px) 50vw, 400px" loading="lazy" alt="Valoración con dispositivo" class="w-full h-full object-cover">
+        </div>
+        <div class="col-span-5 row-span-3 rounded-2xl overflow-hidden shadow-soft">
+          <img src="assets/img/img-1960.webp" srcset="assets/img/img-1960-sm.webp 640w, assets/img/img-1960.webp 1600w" sizes="(max-width:768px) 50vw, 400px" loading="lazy" alt="Movilización articular" class="w-full h-full object-cover">
+        </div>
+        <div class="col-span-7 row-span-2 rounded-2xl overflow-hidden shadow-soft">
+          <img src="assets/img/img-1934.webp" srcset="assets/img/img-1934-sm.webp 640w, assets/img/img-1934.webp 1600w" sizes="(max-width:768px) 100vw, 500px" loading="lazy" alt="Podología profesional" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTALACIONES ============ -->
+<section id="instalaciones" class="py-24 lg:py-32 bg-paper">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+      <div class="max-w-2xl">
+        <span class="text-sm font-semibold text-brand-700 uppercase tracking-widest">Instalaciones</span>
+        <h2 class="font-display mt-3 text-3xl lg:text-5xl font-bold leading-tight">
+          Un espacio pensado para <span class="text-brand-700">trabajarte de verdad.</span>
+        </h2>
+      </div>
+      <p class="text-mute lg:max-w-md">
+        Salas individuales de tratamiento, área de readaptación deportiva, plataforma de pisada y equipo de ecografía.
+        Todo en pleno centro de El Campello.
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <a href="assets/img/img-1942.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-1942.webp" srcset="assets/img/img-1942-sm.webp 640w, assets/img/img-1942.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Recepción JM-MOTION" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+      <a href="assets/img/img-1959.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-1959.webp" srcset="assets/img/img-1959-sm.webp 640w, assets/img/img-1959.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Sala de tratamiento" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+      <a href="assets/img/img-394ae48e.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-394ae48e.webp" srcset="assets/img/img-394ae48e-sm.webp 640w, assets/img/img-394ae48e.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Sala de readaptación con racks" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+      <a href="assets/img/img-4568.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-4568.webp" srcset="assets/img/img-4568-sm.webp 640w, assets/img/img-4568.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Sala entrenamiento funcional" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+      <a href="assets/img/img-1961.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-1961.webp" srcset="assets/img/img-1961-sm.webp 640w, assets/img/img-1961.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Camilla individual" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+      <a href="assets/img/img-1939.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-1939.webp" srcset="assets/img/img-1939-sm.webp 640w, assets/img/img-1939.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Equipo de ecografía y EPTE" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+      <a href="assets/img/img-4351.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-4351.webp" srcset="assets/img/img-4351-sm.webp 640w, assets/img/img-4351.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Pasillo de la clínica" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+      <a href="assets/img/img-3751.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-3751.webp" srcset="assets/img/img-3751-sm.webp 640w, assets/img/img-3751.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Fachada JM-MOTION El Campello" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIOS ============ -->
+<section id="testimonios" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <span class="text-sm font-semibold text-brand-700 uppercase tracking-widest">Testimonios</span>
+      <h2 class="font-display mt-3 text-3xl lg:text-5xl font-bold leading-tight">
+        Lo importante no es lo que decimos nosotros.<br>
+        <span class="text-mute">Es cómo se sienten nuestros pacientes.</span>
+      </h2>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <figure class="card p-7 flex flex-col">
+        <div class="flex gap-0.5 text-amber-400 text-lg">★★★★★</div>
+        <blockquote class="mt-5 text-ink leading-relaxed">"Por primera vez sentí que realmente entendían lo que me pasaba."</blockquote>
+        <figcaption class="mt-6 text-sm text-mute">Paciente verificado · Google Reviews</figcaption>
+      </figure>
+      <figure class="card p-7 flex flex-col">
+        <div class="flex gap-0.5 text-amber-400 text-lg">★★★★★</div>
+        <blockquote class="mt-5 text-ink leading-relaxed">"No fue la típica sesión rápida. Me explicaron todo y me acompañaron durante la recuperación."</blockquote>
+        <figcaption class="mt-6 text-sm text-mute">Paciente verificado · Google Reviews</figcaption>
+      </figure>
+      <figure class="card p-7 flex flex-col">
+        <div class="flex gap-0.5 text-amber-400 text-lg">★★★★★</div>
+        <blockquote class="mt-5 text-ink leading-relaxed">"Volví a entrenar con confianza después de meses arrastrando molestias."</blockquote>
+        <figcaption class="mt-6 text-sm text-mute">Paciente verificado · Google Reviews</figcaption>
+      </figure>
+      <figure class="card p-7 flex flex-col">
+        <div class="flex gap-0.5 text-amber-400 text-lg">★★★★★</div>
+        <blockquote class="mt-5 text-ink leading-relaxed">"Se nota muchísimo el trato cercano y el seguimiento entre sesiones."</blockquote>
+        <figcaption class="mt-6 text-sm text-mute">Paciente verificado · Google Reviews</figcaption>
+      </figure>
+    </div>
+
+    <div class="mt-10">
+      <a href="https://share.google/yw9wABwJstivi4sHc" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-brand-800 text-brand-800 hover:bg-brand-800 hover:text-white font-semibold text-sm transition">
+        Ver todas las reseñas en Google
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="py-24 lg:py-32 bg-paper">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <span class="text-sm font-semibold text-brand-700 uppercase tracking-widest">Preguntas frecuentes</span>
+      <h2 class="font-display mt-3 text-3xl lg:text-5xl font-bold leading-tight">Resolvemos tus dudas</h2>
+    </div>
+
+    <div class="mt-14 space-y-3">
+      <details class="group bg-white border border-line rounded-2xl">
+        <summary class="flex items-center justify-between p-6 lg:p-7">
+          <span class="font-display text-lg font-bold pr-4">¿La sesión es individual?</span>
+          <span class="faq-icon w-9 h-9 rounded-full bg-brand-100 text-brand-700 grid place-items-center flex-none">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 lg:px-7 pb-6 lg:pb-7 -mt-2 text-mute leading-relaxed">
+          Sí. En JM-MOTION trabajamos de forma totalmente individualizada. Durante la sesión estarás acompañado por un profesional centrado en tu caso.
+        </div>
+      </details>
+
+      <details class="group bg-white border border-line rounded-2xl">
+        <summary class="flex items-center justify-between p-6 lg:p-7">
+          <span class="font-display text-lg font-bold pr-4">¿Utilizáis máquinas durante la sesión?</span>
+          <span class="faq-icon w-9 h-9 rounded-full bg-brand-100 text-brand-700 grid place-items-center flex-none">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 lg:px-7 pb-6 lg:pb-7 -mt-2 text-mute leading-relaxed">
+          Podemos utilizar diferentes herramientas dentro del tratamiento, pero no creemos en dejar al paciente conectado a una máquina mientras atendemos otras salas. La sesión está centrada en ti y en tu recuperación.
+        </div>
+      </details>
+
+      <details class="group bg-white border border-line rounded-2xl">
+        <summary class="flex items-center justify-between p-6 lg:p-7">
+          <span class="font-display text-lg font-bold pr-4">¿Hacéis seguimiento entre sesiones?</span>
+          <span class="faq-icon w-9 h-9 rounded-full bg-brand-100 text-brand-700 grid place-items-center flex-none">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 lg:px-7 pb-6 lg:pb-7 -mt-2 text-mute leading-relaxed">
+          Sí. Queremos acompañarte durante el proceso y resolver cualquier duda que pueda surgir entre sesiones para ayudarte a avanzar de la forma más eficiente posible.
+        </div>
+      </details>
+
+      <details class="group bg-white border border-line rounded-2xl">
+        <summary class="flex items-center justify-between p-6 lg:p-7">
+          <span class="font-display text-lg font-bold pr-4">¿Necesito haber hecho deporte para acudir?</span>
+          <span class="faq-icon w-9 h-9 rounded-full bg-brand-100 text-brand-700 grid place-items-center flex-none">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 lg:px-7 pb-6 lg:pb-7 -mt-2 text-mute leading-relaxed">
+          No. Tratamos tanto a personas deportistas como a personas con molestias del día a día, trabajo, estrés o limitaciones de movimiento.
+        </div>
+      </details>
+
+      <details class="group bg-white border border-line rounded-2xl">
+        <summary class="flex items-center justify-between p-6 lg:p-7">
+          <span class="font-display text-lg font-bold pr-4">¿Cuánto dura la sesión?</span>
+          <span class="faq-icon w-9 h-9 rounded-full bg-brand-100 text-brand-700 grid place-items-center flex-none">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 lg:px-7 pb-6 lg:pb-7 -mt-2 text-mute leading-relaxed">
+          La duración puede variar según el tratamiento, pero priorizamos dedicar el tiempo necesario para trabajar correctamente cada caso. Por lo general entre 50–60 minutos, salvo excepciones.
+        </div>
+      </details>
+
+      <details class="group bg-white border border-line rounded-2xl">
+        <summary class="flex items-center justify-between p-6 lg:p-7">
+          <span class="font-display text-lg font-bold pr-4">¿Tratáis lesiones deportivas?</span>
+          <span class="faq-icon w-9 h-9 rounded-full bg-brand-100 text-brand-700 grid place-items-center flex-none">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+        </summary>
+        <div class="px-6 lg:px-7 pb-6 lg:pb-7 -mt-2 text-mute leading-relaxed">
+          Sí. Trabajamos tanto la recuperación como la readaptación para ayudarte a volver a entrenar o competir con seguridad.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL / RESERVAR ============ -->
+<section id="reservar" class="py-24 lg:py-32 bg-brand-900 text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-30">
+    <img src="assets/img/img-1950.webp" loading="lazy" alt="" aria-hidden="true" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-900 via-brand-800/95 to-brand-900"></div>
+  </div>
+  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="font-display text-4xl lg:text-6xl font-extrabold leading-[1.05]">
+      Tu cuerpo lleva tiempo avisándote.<br>
+      <span class="text-brand-200">Ahora toca hacer algo para cambiarlo.</span>
+    </h2>
+    <p class="mt-6 text-lg text-white/80 max-w-2xl mx-auto">
+      Reserva tu valoración en JM-MOTION y empieza a recuperarte de la forma más eficiente posible.
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="https://wa.me/34644360781?text=Hola%20JM-MOTION%2C%20quiero%20reservar%20mi%20valoraci%C3%B3n" target="_blank" rel="noopener"
+         class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold shadow-big transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.554-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.595 5.392l-.999 3.648 3.893-1.039z"/></svg>
+        Reservar por WhatsApp
+      </a>
+      <a href="tel:+34644360781"
+         class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-brand-800 font-semibold hover:bg-brand-50 transition">
+        Llamar al 644 36 07 81
+      </a>
+    </div>
+
+    <div class="mt-10 inline-flex items-center gap-2 text-sm text-white/70">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      JM-MOTION · Calle Port D'lbaida 7 bajo · El Campello
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink text-white/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid md:grid-cols-4 gap-10">
+    <div class="md:col-span-2">
+      <div class="flex items-center gap-2">
+        <span class="w-10 h-10 rounded-xl bg-brand-500 text-white grid place-items-center font-display font-bold">JM</span>
+        <span class="font-display font-bold text-white text-lg">JM-MOTION</span>
+      </div>
+      <p class="mt-5 max-w-md text-sm leading-relaxed text-white/70">
+        Fisioterapia individualizada, readaptación deportiva, ecografía, podología y nutrición en El Campello.
+        Sesiones 100% personalizadas y acompañamiento real durante todo el proceso.
+      </p>
+    </div>
+    <div>
+      <h4 class="font-display font-bold text-white">Contacto</h4>
+      <ul class="mt-4 space-y-2 text-sm">
+        <li><a href="tel:+34644360781" class="hover:text-white">644 36 07 81</a></li>
+        <li><a href="https://wa.me/34644360781" target="_blank" rel="noopener" class="hover:text-white">WhatsApp</a></li>
+        <li><a href="https://share.google/yw9wABwJstivi4sHc" target="_blank" rel="noopener" class="hover:text-white">Google My Business</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-display font-bold text-white">Visítanos</h4>
+      <ul class="mt-4 space-y-2 text-sm">
+        <li>Calle Port D'lbaida 7 bajo<br>El Campello, Alicante</li>
+        <li class="pt-2">L–V 08:00 – 21:00</li>
+        <li>Sábados 09:00 – 14:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-xs text-white/55 flex flex-col sm:flex-row gap-2 justify-between">
+      <p>© <span id="year"></span> JM-MOTION · Fisioterapia & Readaptación</p>
+      <p>Desarrollado por <a href="#" class="text-white/80 hover:text-white font-medium">Stratoma AI</a></p>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a href="https://wa.me/34644360781?text=Hola%20JM-MOTION%2C%20me%20gustar%C3%ADa%20pedir%20cita"
+   target="_blank" rel="noopener"
+   aria-label="Hablar por WhatsApp"
+   class="fixed bottom-6 right-6 z-50 wa-pulse w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white grid place-items-center shadow-big transition">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.554-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.595 5.392l-.999 3.648 3.893-1.039zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.149-.174.198-.298.297-.496.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.521.074-.793.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<!-- ============ STRATOMA BRANDING (CLAUDE.md required) ============ -->
+<style>
+  @media (max-width: 768px) {
+    #stratoma-branding { display: none !important; }
+  }
+</style>
+<div id="stratoma-branding" style="position: fixed; bottom: 20px; left: 20px; z-index: 49; display: flex; align-items: flex-end; gap: 10px;">
+  <a href="https://buy.stripe.com/14AbJ11DE0bKgO64ry3wQ06" target="_blank" rel="noopener"
+     style="background:#000;color:#fff;padding:10px 18px;border-radius:50px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.15);">
+    Comprar Plantilla (100€)
+  </a>
+  <div style="position:relative;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:8px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.08);font-family:'Inter',sans-serif;font-size:10px;color:#666;box-shadow:0 4px 12px rgba(0,0,0,.05);">
+    <div style="font-weight:600;color:#000;margin-bottom:2px;">Desarrollado por</div>
+    <div style="display:flex;align-items:center;gap:4px;"><span style="font-weight:700;">Stratoma AI</span></div>
+    <div style="margin-top:4px;border-top:1px solid #eee;padding-top:4px;">+34 611 03 19 47</div>
+    <button onclick="this.parentElement.parentElement.style.display='none'" style="position:absolute;top:-8px;right:-8px;background:#fff;border:1px solid #eee;width:20px;height:20px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;color:#666;line-height:1;" aria-label="Cerrar">×</button>
+  </div>
+</div>
+
+<script>
+  // year
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // mobile menu
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('mobileMenu');
+  btn?.addEventListener('click', () => menu.classList.toggle('hidden-init'));
+  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden-init')));
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.git
+.gitignore
+.venv
+__pycache__
+*.pyc
+assets/raw
+preview
+*.py
+README.md
+.DS_Store
