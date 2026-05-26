@@ -108,6 +108,9 @@
   /* Mobile menu transitions */
   #mobileMenu { transition: transform .35s ease, opacity .35s ease; }
   #mobileMenu.hidden-init { transform: translateY(-12px); opacity:0; pointer-events:none; }
+  /* carousel */
+  .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+  .no-scrollbar::-webkit-scrollbar { display:none; }
 </style>
 </head>
 <body class="bg-white">
@@ -119,8 +122,9 @@
       <span class="w-9 h-9 rounded-xl bg-brand-800 text-white grid place-items-center font-display font-bold">JM</span>
       <span class="font-display font-bold text-ink tracking-tight">JM-MOTION</span>
     </a>
-    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-mute">
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-mute">
       <a href="#servicios" class="hover:text-ink">Servicios</a>
+      <a href="#equipo" class="hover:text-ink">Equipo</a>
       <a href="#diferencia" class="hover:text-ink">Por qué nosotros</a>
       <a href="#instalaciones" class="hover:text-ink">Instalaciones</a>
       <a href="#testimonios" class="hover:text-ink">Testimonios</a>
@@ -142,6 +146,7 @@
   <div id="mobileMenu" class="hidden-init md:hidden absolute top-full inset-x-0 border-t border-line bg-white shadow-card">
     <nav class="px-6 py-4 flex flex-col gap-3 text-sm font-medium text-ink">
       <a href="#servicios">Servicios</a>
+      <a href="#equipo">Nuestro equipo</a>
       <a href="#diferencia">Por qué nosotros</a>
       <a href="#instalaciones">Instalaciones</a>
       <a href="#testimonios">Testimonios</a>
@@ -317,6 +322,38 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
+
+    <!-- Vídeos -->
+    <div class="mt-16">
+      <h3 class="font-display text-xl font-bold text-white">Conócenos en vídeo</h3>
+      <p class="text-white/70 text-sm mt-2">Nuestras instalaciones y nuestro equipo, explicándote cómo trabajamos.</p>
+      <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <figure>
+          <div class="aspect-[9/16] rounded-2xl overflow-hidden bg-black/30 border border-white/10">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/uNOOGSyzEag" title="Instalaciones JM-MOTION" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <figcaption class="mt-2 text-sm text-white/80 font-medium">Instalaciones</figcaption>
+        </figure>
+        <figure>
+          <div class="aspect-[9/16] rounded-2xl overflow-hidden bg-black/30 border border-white/10">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/hoMYTPNiYjY" title="Cómo trabajamos — Fisioterapia" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <figcaption class="mt-2 text-sm text-white/80 font-medium">Cómo trabajamos</figcaption>
+        </figure>
+        <figure>
+          <div class="aspect-[9/16] rounded-2xl overflow-hidden bg-black/30 border border-white/10">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/hg64avVox7I" title="Nutrición JM-MOTION" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <figcaption class="mt-2 text-sm text-white/80 font-medium">Nutrición</figcaption>
+        </figure>
+        <figure>
+          <div class="aspect-[9/16] rounded-2xl overflow-hidden bg-black/30 border border-white/10">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/rkZzOJW879w" title="Podología JM-MOTION" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <figcaption class="mt-2 text-sm text-white/80 font-medium">Podología</figcaption>
+        </figure>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -350,14 +387,14 @@
             <h3 class="font-display text-2xl font-bold">Fisioterapia</h3>
           </div>
           <p class="mt-4 text-mute leading-relaxed">
-            Dolor lumbar, cervicales, lesiones musculares, sobrecargas, molestias que vuelven una y otra vez.
-            Nuestro objetivo no es que dependas constantemente de tratamientos pasivos, sino ayudarte a
-            recuperarte de forma eficiente.
+            Dolor lumbar y cervical, hernias, tendinopatías, lesiones deportivas, roturas musculares, esguinces,
+            rehabilitación post-operatoria, hombro, ATM, vértigos cervicales, migrañas… Nuestro objetivo no es que
+            dependas de tratamientos pasivos, sino ayudarte a recuperarte de forma eficiente.
           </p>
           <ul class="mt-5 space-y-2.5 text-sm text-ink">
+            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Terapia manual, punción seca y EPI/EPTE</li>
             <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sesiones de 50–60 minutos individuales</li>
             <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reevaluación y seguimiento entre visitas</li>
-            <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pautas de ejercicios y estiramientos para casa</li>
           </ul>
           <a href="#reservar" class="mt-7 inline-flex items-center gap-2 text-brand-700 hover:text-brand-800 font-semibold text-sm">
             Reservar sesión de fisioterapia
@@ -468,6 +505,28 @@
         </div>
       </article>
 
+      <!-- FISIOTERAPIA A DOMICILIO -->
+      <article class="card overflow-hidden flex flex-col p-7 lg:p-9">
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 grid place-items-center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8M5 10v10a1 1 0 001 1h12a1 1 0 001-1V10"/></svg>
+          </span>
+          <h3 class="font-display text-2xl font-bold">Fisioterapia a domicilio</h3>
+        </div>
+        <p class="mt-4 text-mute leading-relaxed">
+          Si tienes problemas de movilidad o acabas de pasar por una operación, vamos nosotros a ti.
+          Llevamos la misma fisioterapia individualizada a tu casa.
+        </p>
+        <ul class="mt-5 space-y-2.5 text-sm text-ink">
+          <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Ideal para movilidad reducida y post-operatorio</li>
+          <li class="flex gap-2.5"><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>El Campello, San Juan (pueblo y playa), Mutxamel, Bonalba, San Vicente del Raspeig y Alicante</li>
+        </ul>
+        <a href="https://wa.me/34644360781?text=Hola%20JM-MOTION%2C%20me%20interesa%20la%20fisioterapia%20a%20domicilio" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-2 text-brand-700 hover:text-brand-800 font-semibold text-sm">
+          Consultar fisioterapia a domicilio
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
       <!-- NUTRICIÓN (full width) -->
       <article class="card overflow-hidden md:col-span-2 grid md:grid-cols-2 gap-0">
         <div class="aspect-[4/3] md:aspect-auto overflow-hidden">
@@ -502,6 +561,92 @@
         </div>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUESTRO EQUIPO ============ -->
+<section id="equipo" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <span class="text-sm font-semibold text-brand-700 uppercase tracking-widest">Nuestro equipo</span>
+      <h2 class="font-display mt-3 text-3xl lg:text-5xl font-bold leading-tight">
+        Cinco profesionales <span class="text-brand-700">obsesionados con tu recuperación.</span>
+      </h2>
+      <p class="mt-6 text-lg text-mute leading-relaxed">
+        Un equipo joven, en formación constante, que escucha y entiende a cada paciente para diseñar un plan a su medida.
+      </p>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="card p-7 flex flex-col">
+        <div class="flex items-center gap-4">
+          <span class="w-14 h-14 rounded-2xl bg-brand-800 text-white grid place-items-center font-display font-bold text-lg">JM</span>
+          <div>
+            <h3 class="font-display text-xl font-bold leading-tight">José Manuel Higuera</h3>
+            <p class="text-brand-700 text-sm font-semibold">Fisioterapeuta y readaptador</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-mute leading-relaxed">Grado en Fisioterapia (UMH Elche) · Máster en Rendimiento Deportivo y Salud · 8 años de experiencia.</p>
+        <p class="mt-3 text-sm text-ink leading-relaxed">Experto en ejercicio terapéutico, ecografía y en el manejo de pacientes de edad avanzada.</p>
+      </article>
+
+      <article class="card p-7 flex flex-col">
+        <div class="flex items-center gap-4">
+          <span class="w-14 h-14 rounded-2xl bg-brand-800 text-white grid place-items-center font-display font-bold text-lg">AZ</span>
+          <div>
+            <h3 class="font-display text-xl font-bold leading-tight">Alejandro Zaragoza</h3>
+            <p class="text-brand-700 text-sm font-semibold">Fisioterapeuta</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-mute leading-relaxed">Grado en Fisioterapia (UMH Elche) · Máster en Terapia Manual (Univ. de Valencia) · 8 años de experiencia.</p>
+        <p class="mt-3 text-sm text-ink leading-relaxed">Experto en valoración y diagnóstico diferencial, ecografía y técnicas invasivas.</p>
+      </article>
+
+      <article class="card p-7 flex flex-col">
+        <div class="flex items-center gap-4">
+          <span class="w-14 h-14 rounded-2xl bg-brand-800 text-white grid place-items-center font-display font-bold text-lg">IJ</span>
+          <div>
+            <h3 class="font-display text-xl font-bold leading-tight">Ignacio Jiménez</h3>
+            <p class="text-brand-700 text-sm font-semibold">Fisioterapeuta y readaptador</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-mute leading-relaxed">Grado en Fisioterapia (UMH Elche) · Máster en Abordaje del Dolor Neuro-Músculo-Esquelético (UMH) · 5 años de experiencia.</p>
+        <p class="mt-3 text-sm text-ink leading-relaxed">Experto en ejercicio terapéutico, ecografía y pacientes con dolor crónico.</p>
+      </article>
+
+      <article class="card p-7 flex flex-col">
+        <div class="flex items-center gap-4">
+          <span class="w-14 h-14 rounded-2xl bg-brand-800 text-white grid place-items-center font-display font-bold text-lg">PR</span>
+          <div>
+            <h3 class="font-display text-xl font-bold leading-tight">Pedro Ruiz</h3>
+            <p class="text-brand-700 text-sm font-semibold">Nutricionista</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-mute leading-relaxed">Grado en Nutrición (Univ. de Valencia) · Antropometría ISAK I · 8 años de experiencia.</p>
+        <p class="mt-3 text-sm text-ink leading-relaxed">Especialista en pérdida de grasa y ganancia de masa muscular, con un seguimiento preciso y profesional.</p>
+      </article>
+
+      <article class="card p-7 flex flex-col">
+        <div class="flex items-center gap-4">
+          <span class="w-14 h-14 rounded-2xl bg-brand-800 text-white grid place-items-center font-display font-bold text-lg">JS</span>
+          <div>
+            <h3 class="font-display text-xl font-bold leading-tight">Jorge Sánchez</h3>
+            <p class="text-brand-700 text-sm font-semibold">Podólogo</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-mute leading-relaxed">Grado en Podología (UMH Elche) · 10 años de experiencia.</p>
+        <p class="mt-3 text-sm text-ink leading-relaxed">Experto en análisis biomecánico de la pisada y tratamientos del pie: pie diabético, quiropodias, pie de atleta, onicomicosis…</p>
+      </article>
+
+      <article class="card p-7 flex flex-col justify-center items-start bg-brand-800 text-white">
+        <h3 class="font-display text-2xl font-bold leading-tight">¿Quieres que te valoremos?</h3>
+        <p class="mt-3 text-white/80 text-sm leading-relaxed">Reserva una valoración y te asignamos al profesional que mejor encaja con tu caso.</p>
+        <a href="#reservar" class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-brand-800 font-semibold text-sm hover:bg-brand-50 transition">
+          Reservar valoración
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
     </div>
   </div>
 </section>
@@ -566,15 +711,23 @@
       </p>
     </div>
 
-    <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
-      <a href="assets/img/img-1942.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-1942.webp" srcset="assets/img/img-1942-sm.webp 640w, assets/img/img-1942.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Recepción JM-MOTION" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
-      <a href="assets/img/img-1959.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-1959.webp" srcset="assets/img/img-1959-sm.webp 640w, assets/img/img-1959.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Sala de tratamiento" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
-      <a href="assets/img/img-394ae48e.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-394ae48e.webp" srcset="assets/img/img-394ae48e-sm.webp 640w, assets/img/img-394ae48e.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Sala de readaptación con racks" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
-      <a href="assets/img/img-4568.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-4568.webp" srcset="assets/img/img-4568-sm.webp 640w, assets/img/img-4568.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Sala entrenamiento funcional" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
-      <a href="assets/img/img-1961.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-1961.webp" srcset="assets/img/img-1961-sm.webp 640w, assets/img/img-1961.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Camilla individual" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
-      <a href="assets/img/img-1939.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-1939.webp" srcset="assets/img/img-1939-sm.webp 640w, assets/img/img-1939.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Equipo de ecografía y EPTE" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
-      <a href="assets/img/img-4351.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-4351.webp" srcset="assets/img/img-4351-sm.webp 640w, assets/img/img-4351.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Pasillo de la clínica" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
-      <a href="assets/img/img-3751.webp" class="aspect-[3/4] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-3751.webp" srcset="assets/img/img-3751-sm.webp 640w, assets/img/img-3751.webp 1600w" sizes="(max-width:768px) 50vw, 300px" loading="lazy" alt="Fachada JM-MOTION El Campello" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+    <div class="mt-12 relative">
+      <div id="galTrack" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-1">
+        <a href="assets/img/img-1942.webp" class="gal-slide snap-center shrink-0 w-[80%] sm:w-[48%] lg:w-[32%] aspect-[4/3] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-1942.webp" srcset="assets/img/img-1942-sm.webp 640w, assets/img/img-1942.webp 1600w" sizes="(max-width:768px) 80vw, 460px" loading="lazy" alt="Recepción JM-MOTION" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+        <a href="assets/img/img-1959.webp" class="gal-slide snap-center shrink-0 w-[80%] sm:w-[48%] lg:w-[32%] aspect-[4/3] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-1959.webp" srcset="assets/img/img-1959-sm.webp 640w, assets/img/img-1959.webp 1600w" sizes="(max-width:768px) 80vw, 460px" loading="lazy" alt="Sala de tratamiento" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+        <a href="assets/img/img-394ae48e.webp" class="gal-slide snap-center shrink-0 w-[80%] sm:w-[48%] lg:w-[32%] aspect-[4/3] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-394ae48e.webp" srcset="assets/img/img-394ae48e-sm.webp 640w, assets/img/img-394ae48e.webp 1600w" sizes="(max-width:768px) 80vw, 460px" loading="lazy" alt="Sala de readaptación con racks" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+        <a href="assets/img/img-4568.webp" class="gal-slide snap-center shrink-0 w-[80%] sm:w-[48%] lg:w-[32%] aspect-[4/3] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-4568.webp" srcset="assets/img/img-4568-sm.webp 640w, assets/img/img-4568.webp 1600w" sizes="(max-width:768px) 80vw, 460px" loading="lazy" alt="Sala entrenamiento funcional" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+        <a href="assets/img/img-1961.webp" class="gal-slide snap-center shrink-0 w-[80%] sm:w-[48%] lg:w-[32%] aspect-[4/3] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-1961.webp" srcset="assets/img/img-1961-sm.webp 640w, assets/img/img-1961.webp 1600w" sizes="(max-width:768px) 80vw, 460px" loading="lazy" alt="Camilla individual" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+        <a href="assets/img/img-1939.webp" class="gal-slide snap-center shrink-0 w-[80%] sm:w-[48%] lg:w-[32%] aspect-[4/3] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-1939.webp" srcset="assets/img/img-1939-sm.webp 640w, assets/img/img-1939.webp 1600w" sizes="(max-width:768px) 80vw, 460px" loading="lazy" alt="Equipo de ecografía y EPTE" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+        <a href="assets/img/img-4351.webp" class="gal-slide snap-center shrink-0 w-[80%] sm:w-[48%] lg:w-[32%] aspect-[4/3] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-4351.webp" srcset="assets/img/img-4351-sm.webp 640w, assets/img/img-4351.webp 1600w" sizes="(max-width:768px) 80vw, 460px" loading="lazy" alt="Pasillo de la clínica" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+        <a href="assets/img/img-3751.webp" class="gal-slide snap-center shrink-0 w-[80%] sm:w-[48%] lg:w-[32%] aspect-[4/3] block rounded-2xl overflow-hidden shadow-soft group"><img src="assets/img/img-3751.webp" srcset="assets/img/img-3751-sm.webp 640w, assets/img/img-3751.webp 1600w" sizes="(max-width:768px) 80vw, 460px" loading="lazy" alt="Fachada JM-MOTION El Campello" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
+      </div>
+      <button id="galPrev" aria-label="Foto anterior" class="hidden sm:grid absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white shadow-card place-items-center text-ink transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button id="galNext" aria-label="Foto siguiente" class="hidden sm:grid absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white shadow-card place-items-center text-ink transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -590,26 +743,22 @@
       </h2>
     </div>
 
-    <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-      <figure class="card p-7 flex flex-col">
+    <div class="mt-14 grid md:grid-cols-2 gap-5">
+      <figure class="card p-7 lg:p-9 flex flex-col">
         <div class="flex gap-0.5 text-amber-400 text-lg">★★★★★</div>
-        <blockquote class="mt-5 text-ink leading-relaxed">"Por primera vez sentí que realmente entendían lo que me pasaba."</blockquote>
-        <figcaption class="mt-6 text-sm text-mute">Paciente verificado · Google Reviews</figcaption>
+        <blockquote class="mt-5 text-ink leading-relaxed text-lg">"Llamé de urgencia y me atendieron de inmediato. La atención fue rápida, profesional y cercana, y salí totalmente aliviado. Sin duda, un servicio excelente que recomiendo a cualquiera que necesite ayuda rápida y efectiva. ¡Un gran profesional!"</blockquote>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-brand-100 text-brand-700 grid place-items-center font-display font-bold">A</span>
+          <span class="text-sm"><span class="font-semibold text-ink">Abdnor B.</span><br><span class="text-mute">Paciente verificado · Google</span></span>
+        </figcaption>
       </figure>
-      <figure class="card p-7 flex flex-col">
+      <figure class="card p-7 lg:p-9 flex flex-col">
         <div class="flex gap-0.5 text-amber-400 text-lg">★★★★★</div>
-        <blockquote class="mt-5 text-ink leading-relaxed">"No fue la típica sesión rápida. Me explicaron todo y me acompañaron durante la recuperación."</blockquote>
-        <figcaption class="mt-6 text-sm text-mute">Paciente verificado · Google Reviews</figcaption>
-      </figure>
-      <figure class="card p-7 flex flex-col">
-        <div class="flex gap-0.5 text-amber-400 text-lg">★★★★★</div>
-        <blockquote class="mt-5 text-ink leading-relaxed">"Volví a entrenar con confianza después de meses arrastrando molestias."</blockquote>
-        <figcaption class="mt-6 text-sm text-mute">Paciente verificado · Google Reviews</figcaption>
-      </figure>
-      <figure class="card p-7 flex flex-col">
-        <div class="flex gap-0.5 text-amber-400 text-lg">★★★★★</div>
-        <blockquote class="mt-5 text-ink leading-relaxed">"Se nota muchísimo el trato cercano y el seguimiento entre sesiones."</blockquote>
-        <figcaption class="mt-6 text-sm text-mute">Paciente verificado · Google Reviews</figcaption>
+        <blockquote class="mt-5 text-ink leading-relaxed text-lg">"Me puse en manos del mejor podólogo que mis pies han tocado. Jorge es un auténtico profesional, cuidando al detalle todas las partes del pie y con recomendaciones para una experiencia excepcional. Sin duda repetiré. Les garantizo que saldrán con ganas de hacer el Camino de Santiago descalzos."</blockquote>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full bg-brand-100 text-brand-700 grid place-items-center font-display font-bold">Á</span>
+          <span class="text-sm"><span class="font-semibold text-ink">Álvaro P.</span><br><span class="text-mute">Paciente verificado · Google</span></span>
+        </figcaption>
       </figure>
     </div>
 
@@ -738,6 +887,18 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
       JM-MOTION · Calle Port D'lbaida 7 bajo · El Campello
     </div>
+
+    <div class="mt-8 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 bg-white/10 border border-white/15 rounded-2xl px-7 py-5 backdrop-blur">
+      <div class="flex items-center gap-2 text-brand-200">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span class="font-display font-bold tracking-wide uppercase text-sm">Horario</span>
+      </div>
+      <div class="text-center sm:text-left">
+        <p class="font-display text-xl lg:text-2xl font-bold text-white">Lunes a Viernes · 08:00 – 21:00</p>
+        <p class="font-display text-xl lg:text-2xl font-bold text-white">Sábados · 09:00 – 14:00</p>
+        <p class="text-white/60 text-sm mt-1">Sin cerrar a mediodía · Abierto también en vacaciones</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -759,8 +920,23 @@
       <ul class="mt-4 space-y-2 text-sm">
         <li><a href="tel:+34644360781" class="hover:text-white">644 36 07 81</a></li>
         <li><a href="https://wa.me/34644360781" target="_blank" rel="noopener" class="hover:text-white">WhatsApp</a></li>
+        <li><a href="mailto:jmmotion.fisioterapia@gmail.com" class="hover:text-white">jmmotion.fisioterapia@gmail.com</a></li>
         <li><a href="https://share.google/yw9wABwJstivi4sHc" target="_blank" rel="noopener" class="hover:text-white">Google My Business</a></li>
       </ul>
+      <div class="mt-5 flex items-center gap-3">
+        <a href="https://instagram.com/jmmotion.fisioterapia" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.42.4.68.8.9 1.4.17.4.36 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 1.8-.42 2.2a3.9 3.9 0 01-.9 1.4c-.4.42-.8.68-1.4.9-.4.17-1 .36-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-1.8-.25-2.2-.42a3.9 3.9 0 01-1.4-.9c-.42-.4-.68-.8-.9-1.4-.17-.4-.36-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.4-.42.8-.68 1.4-.9.4-.17 1-.36 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.07-.9.04-1.4.2-1.7.32-.43.17-.74.37-1.06.7-.32.31-.52.62-.7 1.05-.12.3-.28.8-.32 1.7C3.8 8.5 3.8 8.9 3.8 12s0 3.5.07 4.7c.04.9.2 1.4.32 1.7.17.43.37.74.7 1.06.31.32.62.52 1.05.7.3.12.8.28 1.7.32 1.2.06 1.6.07 4.7.07s3.5 0 4.7-.07c.9-.04 1.4-.2 1.7-.32.43-.17.74-.37 1.06-.7.32-.31.52-.62.7-1.05.12-.3.28-.8.32-1.7.06-1.2.07-1.6.07-4.7s0-3.5-.07-4.7c-.04-.9-.2-1.4-.32-1.7a2.1 2.1 0 00-.7-1.06 2.1 2.1 0 00-1.05-.7c-.3-.12-.8-.28-1.7-.32C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 1.8a3.1 3.1 0 100 6.2 3.1 3.1 0 000-6.2zm5.1-.4a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@jmmotionfisio" target="_blank" rel="noopener" aria-label="TikTok" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8a4.3 4.3 0 01-1-2.8h-3.1v12.2a2.5 2.5 0 11-2.5-2.5c.2 0 .4 0 .6.08V9.6a5.6 5.6 0 00-.6-.03 5.6 5.6 0 105.6 5.6V8.9a7.3 7.3 0 004.2 1.34V7.1a4.3 4.3 0 01-3.2-1.3z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@Jm-Motion" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.4a2.5 2.5 0 00-1.8 1.8C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 001.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.4a2.5 2.5 0 001.8-1.8C23 15.2 23 12 23 12zM9.8 15V9l5.2 3-5.2 3z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/Jm-Motion" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 grid place-items-center transition">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.75-1.6 1.5V12h2.8l-.45 2.9h-2.35v7A10 10 0 0022 12z"/></svg>
+        </a>
+      </div>
     </div>
     <div>
       <h4 class="font-display font-bold text-white">Visítanos</h4>
@@ -774,7 +950,8 @@
   <div class="border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-xs text-white/55 flex flex-col sm:flex-row gap-2 justify-between">
       <p>© <span id="year"></span> JM-MOTION · Fisioterapia & Readaptación</p>
-      <p>Desarrollado por <a href="#" class="text-white/80 hover:text-white font-medium">Stratoma AI</a></p>
+      <p><a href="legal.html" class="hover:text-white">Aviso legal · Privacidad · Cookies</a></p>
+      <p>Desarrollado por <a href="https://stratomai.com" target="_blank" rel="noopener" class="text-white/80 hover:text-white font-medium">Stratoma AI</a></p>
     </div>
   </div>
 </footer>
@@ -816,6 +993,21 @@
   const menu = document.getElementById('mobileMenu');
   btn?.addEventListener('click', () => menu.classList.toggle('hidden-init'));
   menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden-init')));
+  // gallery carousel (auto + manual + swipe)
+  const track = document.getElementById('galTrack');
+  if (track) {
+    const step = () => { const s = track.querySelector('.gal-slide'); return s ? s.getBoundingClientRect().width + 16 : 320; };
+    const advance = () => {
+      const max = track.scrollWidth - track.clientWidth - 4;
+      if (track.scrollLeft >= max) track.scrollTo({ left: 0, behavior: 'smooth' });
+      else track.scrollBy({ left: step(), behavior: 'smooth' });
+    };
+    let timer = setInterval(advance, 4000);
+    const reset = () => { clearInterval(timer); timer = setInterval(advance, 4000); };
+    document.getElementById('galPrev')?.addEventListener('click', () => { track.scrollBy({ left: -step(), behavior: 'smooth' }); reset(); });
+    document.getElementById('galNext')?.addEventListener('click', () => { track.scrollBy({ left: step(), behavior: 'smooth' }); reset(); });
+    ['pointerdown', 'touchstart', 'wheel'].forEach(ev => track.addEventListener(ev, reset, { passive: true }));
+  }
 </script>
 </body>
 </html>

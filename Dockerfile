@@ -2,6 +2,7 @@ FROM nginx:alpine
 
 # Copy site
 COPY index.html /usr/share/nginx/html/index.html
+COPY legal.html /usr/share/nginx/html/legal.html
 COPY assets /usr/share/nginx/html/assets
 
 # Custom nginx config: gzip + cache headers for static assets
